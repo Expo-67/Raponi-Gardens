@@ -12,6 +12,7 @@ import rubis from "../app/assets/rubis.jpg";
 import karuri from "../app/assets/karuri.jpg";
 import nyasingo from "../app/assets/nyasingo.jpg";
 import dhl from "../app/assets/dhl.jpg";
+import router from "next/router";
 
 import { Leaf, Mail, MapPin, Phone, X, Menu } from "lucide-react";
 import { useState } from "react";
@@ -368,8 +369,8 @@ export default function Home() {
                   quality, sustainability, and beautiful design.
                 </p>
                 <Link
-                  href="#"
-                  className="border border-gray-900 px-8 py-2 rounded-md hover:bg-gray-600 bg-gray-500 inline-block"
+                  href="/projects"
+                  className="border border-gray-900 px-8 py-2 rounded-md hover:bg-gray-600 bg-gray-500 text-white inline-block transition-colors"
                 >
                   PROJECTS
                 </Link>
