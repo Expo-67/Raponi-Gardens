@@ -5,6 +5,14 @@ import Link from "next/link";
 import logo from "../app/assets/Logo Fin_page-0001(1).jpg";
 import hero from "../app/assets/l16.jpg";
 import about from "../app/assets/azb.jpg";
+import gidy from "../app/assets/img2.jpg";
+import joyce from "../app/assets/img4.jpg";
+import wom from "../app/assets/wom.jpg";
+import rubis from "../app/assets/rubis.jpg";
+import karuri from "../app/assets/karuri.jpg";
+import nyasingo from "../app/assets/nyasingo.jpg";
+import dhl from "../app/assets/dhl.jpg";
+
 import { Leaf, Mail, MapPin, Phone, X, Menu } from "lucide-react";
 import { useState } from "react";
 
@@ -22,7 +30,7 @@ export default function Home() {
         <div className="container mx-auto flex items-center justify-between p-4">
           <div className="flex items-center">
             <Image
-              src={logo}
+              src={logo || "/placeholder.svg"}
               alt="Raponi Gardens logo"
               width={72}
               height={52}
@@ -112,7 +120,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative h-[500px]">
           <Image
-            src={hero}
+            src={hero || "/placeholder.svg"}
             alt="Beautiful landscaped garden"
             fill
             className="object-cover"
@@ -134,7 +142,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         {/* Services Section */}
         <section id="services" className="py-16 bg-white">
           <div className="container mx-auto px-4 md:px-6">
@@ -205,7 +212,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         {/* About Us Section */}
         <section id="about" className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 md:px-6">
@@ -238,7 +244,7 @@ export default function Home() {
               </div>
               <div className="relative h-[400px] rounded-lg overflow-hidden">
                 <Image
-                  src={about}
+                  src={about || "/placeholder.svg"}
                   alt="Gardener working"
                   fill
                   className="object-cover"
@@ -247,7 +253,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         {/* Stats Section */}
         <section className="py-12 bg-green-800 text-white">
           <div className="container mx-auto px-4 md:px-6">
@@ -267,34 +272,35 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         {/* Team Section */}
         <section id="team" className="py-16 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-12">
               <span className="text-green-600 font-medium">OUR EXPERTS</span>
-              <h2 className="text-3xl font-bold mt-2">Meet Our Team</h2>
+              <h2 className="text-3xl font-bold mt-2 text-black">
+                Meet Our Team
+              </h2>
               <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
                 Our dedicated team of professionals brings years of experience
                 and passion to every project.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-black">
               {[
                 {
                   name: "Gideon Sikento",
                   role: "Manager",
-                  image: "/placeholder.svg?height=300&width=300",
+                  image: gidy,
                 },
                 {
                   name: "Joyce Topiya",
                   role: "Secretary",
-                  image: "/placeholder.svg?height=300&width=300",
+                  image: joyce,
                 },
                 {
                   name: "Jake Alison",
                   role: "Landscape Designer",
-                  image: "/placeholder.svg?height=300&width=300",
+                  image: wom,
                 },
               ].map((member, index) => (
                 <div key={index} className="text-center">
@@ -313,23 +319,22 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         {/* Portfolio Section */}
         <section id="projects" className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
               <div className="order-2 md:order-1 grid grid-cols-2 gap-4">
-                <div className="relative h-64 rounded-lg overflow-hidden">
+                <div className="relative h-64 rounded-lg overflow-hidden text-black">
                   <Image
-                    src="/placeholder.svg?height=300&width=300"
+                    src={rubis}
                     alt="Landscape project 1"
                     fill
                     className="object-cover"
                   />
                 </div>
-                <div className="relative h-64 rounded-lg overflow-hidden">
+                <div className="relative h-64 rounded-lg overflow-hidden text-black">
                   <Image
-                    src="/placeholder.svg?height=300&width=300"
+                    src={karuri}
                     alt="Landscape project 2"
                     fill
                     className="object-cover"
@@ -337,15 +342,15 @@ export default function Home() {
                 </div>
                 <div className="relative h-64 rounded-lg overflow-hidden">
                   <Image
-                    src="/placeholder.svg?height=300&width=300"
+                    src={nyasingo}
                     alt="Landscape project 3"
                     fill
                     className="object-cover"
                   />
                 </div>
-                <div className="relative h-64 rounded-lg overflow-hidden">
+                <div className="relative h-64 rounded-lg overflow-hidden text-black">
                   <Image
-                    src="/placeholder.svg?height=300&width=300"
+                    src={dhl}
                     alt="Landscape project 4"
                     fill
                     className="object-cover"
@@ -353,7 +358,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="order-1 md:order-2">
-                <h2 className="text-3xl font-bold mb-4">
+                <h2 className="text-3xl font-bold mb-4 text-black">
                   A peak of our landscape{" "}
                   <span className="text-yellow-500">creations</span>
                 </h2>
@@ -364,7 +369,7 @@ export default function Home() {
                 </p>
                 <Link
                   href="#"
-                  className="border border-gray-300 px-8 py-2 rounded-md hover:bg-gray-100 transition-colors inline-block"
+                  className="border border-gray-900 px-8 py-2 rounded-md hover:bg-gray-600 bg-gray-500 inline-block"
                 >
                   PROJECTS
                 </Link>
@@ -372,17 +377,18 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         {/* Testimonials Section */}
         <section id="testimonials" className="py-16 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-12">
               <span className="text-green-600 font-medium">
-                WHAT CLIENTS SAY
+                What clients say!
               </span>
-              <h2 className="text-3xl font-bold mt-2">Testimonials</h2>
+              <h2 className="text-3xl font-bold mt-2 text-black">
+                Testimonials
+              </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-black">
               {[
                 {
                   name: "Sarah Johnson",
@@ -437,96 +443,141 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Contact Section */}
-        <section id="contact" className="py-16 bg-green-800 text-white">
+        {/* Contact Section */}`
+        <section className="py-16 bg-white">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
-                <p className="mb-8">
-                  Have a project in mind or need maintenance for your garden?
-                  Contact us today for a free consultation.
+                <div className="mb-8">
+                  <h2 className="text-4xl font-bold mt-2 text-black">
+                    Contact us for your
+                    <br />
+                    Landscape
+                    <br />
+                    Solution Needs
+                  </h2>
+                </div>
+                <p className="mb-8 text-gray-700">
+                  Are you looking for top-quality landscaping experts
+                  <br />
+                  to your needs? Reach out to us.
                 </p>
                 <div className="space-y-4">
-                  <div className="flex items-start">
-                    <MapPin className="w-6 h-6 mr-4 mt-1" />
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-4">
+                      <Mail className="w-5 h-5 text-black" />
+                    </div>
                     <div>
-                      <h3 className="font-bold">Address</h3>
-                      <p>123 Garden Street, Green City, GC 12345</p>
+                      <p className="text-sm text-black">E-mail</p>
+                      <p className="font-medium text-black">
+                        otipogideon@gmail.com
+                      </p>
                     </div>
                   </div>
-                  <div className="flex items-start">
-                    <Phone className="w-6 h-6 mr-4 mt-1" />
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-4">
+                      <Phone className="w-5 h-5 text-black" />
+                    </div>
                     <div>
-                      <h3 className="font-bold">Phone</h3>
-                      <p>(123) 456-7890</p>
+                      <p className="text-sm text-black">Phone number</p>
+                      <p className="font-medium text-black">
+                        0710526821 / 0737492018
+                      </p>
                     </div>
                   </div>
-                  <div className="flex items-start">
-                    <Mail className="w-6 h-6 mr-4 mt-1" />
+                  <div className="flex items-start pt-2">
                     <div>
-                      <h3 className="font-bold">Email</h3>
-                      <p>info@gardener.com</p>
+                      <p className="font-medium text-black">
+                        P.O Box 574-00208 Ngong Hills
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
               <div>
-                <form className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-white p-8 rounded-lg shadow-lg text-black">
+                  <form className="space-y-4">
                     <div>
-                      <label htmlFor="name" className="block mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block mb-2 text-sm text-black"
+                      >
                         Name
                       </label>
                       <input
                         type="text"
                         id="name"
-                        className="w-full px-4 py-2 rounded-md text-black"
-                        placeholder="Your name"
+                        className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="John doe"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block mb-2">
+                      <label htmlFor="email" className="block mb-2 text-sm">
                         Email
                       </label>
                       <input
                         type="email"
                         id="email"
-                        className="w-full px-4 py-2 rounded-md text-black"
-                        placeholder="Your email"
+                        className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="johndoe@example.com"
                       />
                     </div>
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block mb-2">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      className="w-full px-4 py-2 rounded-md text-black"
-                      placeholder="Subject"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={5}
-                      className="w-full px-4 py-2 rounded-md text-black"
-                      placeholder="Your message"
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="bg-yellow-500 text-black px-6 py-3 rounded-md font-medium hover:bg-yellow-400 transition-colors"
-                  >
-                    Send Message
-                  </button>
-                </form>
+                    <div>
+                      <label htmlFor="industry" className="block mb-2 text-sm">
+                        Industry
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="service"
+                          className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
+                        >
+                          <option value="" disabled selected>
+                            Select...
+                          </option>
+                          <option value="#">Landscape Design</option>
+                          <option value="#">Garden Maintenance</option>
+                          <option value="#">Hardscaping</option>
+                          <option value="#">Enviromental Conservation</option>
+
+                          <option value="other">Other</option>
+                        </select>
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                          <svg
+                            className="w-5 h-5 text-gray-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M19 9l-7 7-7-7"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <label htmlFor="message" className="block mb-2 text-sm">
+                        Message
+                      </label>
+                      <textarea
+                        id="message"
+                        rows={5}
+                        className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Enter your message"
+                      ></textarea>
+                    </div>
+                    <button
+                      type="submit"
+                      className="bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors flex items-center justify-center"
+                    >
+                      Get a Solution
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -537,17 +588,17 @@ export default function Home() {
       <footer className="bg-green-900 text-white py-8">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <Link
-                href="/"
-                className="flex items-center gap-2 text-xl font-bold mb-4"
-              >
-                <Leaf className="h-6 w-6" />
-                <span>Raponi Gardens</span>
-              </Link>
-              <p className="text-green-300">
-                Creating beautiful and sustainable landscapes since 2010.
-              </p>
+            <div className="flex items-center">
+              <Image
+                src={logo || "/placeholder.svg"}
+                alt="Raponi Gardens logo"
+                width={72}
+                height={52}
+                className="rounded-full"
+              />
+              <span className="ml-2 text-lg font-bold text-white">
+                Raponi Gardens
+              </span>
             </div>
             <div>
               <h3 className="font-bold text-lg mb-4">Quick Links</h3>
@@ -594,7 +645,7 @@ export default function Home() {
                     href="#"
                     className="hover:text-green-300 transition-colors"
                   >
-                    Maintenance
+                    Drainage installation
                   </Link>
                 </li>
                 <li>
@@ -602,7 +653,7 @@ export default function Home() {
                     href="#"
                     className="hover:text-green-300 transition-colors"
                   >
-                    Tree Care
+                    Lanscape Design
                   </Link>
                 </li>
                 <li>
@@ -610,7 +661,7 @@ export default function Home() {
                     href="#"
                     className="hover:text-green-300 transition-colors"
                   >
-                    Pruning
+                    Garden Maintenance
                   </Link>
                 </li>
                 <li>
@@ -618,35 +669,16 @@ export default function Home() {
                     href="#"
                     className="hover:text-green-300 transition-colors"
                   >
-                    Landscaping
+                    Hardscaping
                   </Link>
                 </li>
               </ul>
             </div>
-            <div>
-              <h3 className="font-bold text-lg mb-4">Newsletter</h3>
-              <p className="mb-4 text-green-300">
-                Subscribe to our newsletter for gardening tips and updates.
-              </p>
-              <form className="flex">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="px-4 py-2 rounded-l-md text-black w-full"
-                />
-                <button
-                  type="submit"
-                  className="bg-yellow-500 text-black px-4 py-2 rounded-r-md hover:bg-yellow-400 transition-colors"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
           </div>
           <div className="border-t border-green-700 mt-8 pt-8 text-center text-green-300">
             <p>
-              &copy; {new Date().getFullYear()} Raponi Gardens. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} redevops- crafting digital
+              experiences.
             </p>
           </div>
         </div>
