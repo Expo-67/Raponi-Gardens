@@ -2,6 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { Project } from "../types/project";
+import rubis from "../assets/rubis.jpg";
+import karuri from "../assets/karuri.jpg";
+import nyasingo from "../assets/nyasingo.jpg";
+import dhl from "../assets/dhl.jpg";
 
 export default function ProjectsPage() {
   // Sample project data - replace with your actual data
@@ -9,56 +13,42 @@ export default function ProjectsPage() {
     {
       id: 1,
       title: "Rubis Commercial Landscaping",
-      date: "March 2023",
+      date: "December 2019 - October 2022",
       description:
         "A complete commercial landscape transformation for Rubis, featuring drought-resistant plants, efficient irrigation systems, and custom hardscaping that complements their corporate identity.",
-      image: "/rubis.jpg", // Replace with your actual image path
+      image: rubis,
       category: "Commercial",
+      status: "completed",
     },
     {
       id: 2,
-      title: "Karuri Residential Garden",
-      date: "January 2023",
+      title: "Ongoing project at Karuri level 4 hospital",
+      date: "21st February 2025 to date",
       description:
-        "A luxurious residential garden design featuring native plants, a water feature, and outdoor living spaces that blend seamlessly with the natural surroundings.",
-      image: "/karuri.jpg", // Replace with your actual image path
-      category: "Residential",
+        "A comprehensive landscaping project for Karuri Level 4 Hospital, featuring sustainable design elements, healing gardens, and accessible outdoor spaces for patients, staff, and visitors.",
+      image: karuri,
+      category: "Public Space",
+      status: "ongoing",
     },
     {
       id: 3,
-      title: "Nyasingo Park Renovation",
-      date: "November 2022",
+      title: "Nyansiongo Tea Factory Landscape Project",
+      date: "October 2020 - August 2021",
       description:
-        "Revitalization of a community park with sustainable landscaping practices, including rainwater harvesting, native plantings, and eco-friendly materials.",
-      image: "/nyasingo.jpg", // Replace with your actual image path
-      category: "Public Space",
+        "Comprehensive landscape design and implementation for Nyansiongo Tea Factory, including creation of lawn gardens on 3 acres (12,000 SM) of land and installation of paving block driveways and walkways covering 2,000 SM.",
+      image: nyasingo,
+      category: "Commercial",
+      status: "completed",
     },
     {
       id: 4,
-      title: "DHL Corporate Campus",
+      title: "DHL Corporate and Residential Projects",
       date: "August 2022",
       description:
-        "A comprehensive landscape design for DHL's corporate campus, featuring seasonal color displays, efficient irrigation, and low-maintenance plantings.",
-      image: "/dhl.jpg", // Replace with your actual image path
+        "A comprehensive landscape design for DHL's corporate campus and ground preparation at the former MD's residence in Kajiado, featuring sustainable design elements, efficient irrigation, and custom hardscaping.",
+      image: dhl,
       category: "Commercial",
-    },
-    {
-      id: 5,
-      title: "Riverside Retreat",
-      date: "June 2022",
-      description:
-        "A tranquil riverside landscape featuring native riparian plants, natural stone pathways, and custom outdoor seating areas that maximize the water views.",
-      image: "/placeholder.svg?height=600&width=800", // Replace with your actual image
-      category: "Residential",
-    },
-    {
-      id: 6,
-      title: "City Center Plaza",
-      date: "April 2022",
-      description:
-        "Urban landscape redesign with drought-tolerant plantings, permeable paving, and modular seating areas that create a welcoming public space in the heart of the city.",
-      image: "/placeholder.svg?height=600&width=800", // Replace with your actual image
-      category: "Public Space",
+      status: "completed",
     },
   ];
 
@@ -102,7 +92,7 @@ export default function ProjectsPage() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {projects.map((project: Project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
@@ -128,6 +118,16 @@ function ProjectCard({ project }: ProjectCardProps) {
         <div className="absolute top-4 right-4 bg-yellow-500 text-black text-sm font-medium px-3 py-1 rounded-full">
           {project.category}
         </div>
+        {project.status === "ongoing" && (
+          <div className="absolute top-4 left-4 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">
+            Ongoing
+          </div>
+        )}
+        {project.status === "completed" && (
+          <div className="absolute top-4 left-4 bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">
+            Completed
+          </div>
+        )}
       </div>
       <div className="p-6">
         <div className="text-sm text-gray-500 mb-2">{project.date}</div>
@@ -136,7 +136,7 @@ function ProjectCard({ project }: ProjectCardProps) {
         </h3>
         <p className="text-gray-600 mb-4">{project.description}</p>
         <Link
-          href={`/projects/${project.id}`}
+          href={`/projectdetails/${project.id}`}
           className="inline-flex items-center text-yellow-600 hover:text-yellow-800 font-medium"
         >
           View Project Details
