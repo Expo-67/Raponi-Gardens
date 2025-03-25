@@ -13,6 +13,7 @@ import karuri from "../app/assets/karuri.jpg";
 import nyasingo from "../app/assets/nyasingo.jpg";
 import dhl from "../app/assets/dhl.jpg";
 import router from "next/router";
+import { motion } from "framer-motion";
 
 import { Leaf, Mail, MapPin, Phone, X, Menu } from "lucide-react";
 import { useState } from "react";
@@ -119,27 +120,50 @@ export default function Home() {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative h-[500px]">
+        <section className="relative h-[500px] md:h-[600px] lg:h-[700px]">
           <Image
-            src={hero || "/placeholder.svg"}
+            src={hero || "/placeholder.svg?height=700&width=1200"}
             alt="Beautiful landscaped garden"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0  bg-opacity-40">
-            <div className="container mx-auto h-full flex flex-col justify-center px-4 md:px-6">
-              <div className="max-w-2xl">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-                  Landscaping & smart green solutions
+          {/* Gradient overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent">
+            <div className="container mx-auto h-full flex flex-col justify-center items-center text-center px-4 md:px-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="max-w-3xl"
+              >
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                  Landscaping & Smart Green Solutions
                 </h1>
-                <Link
-                  href="#projects"
-                  className="inline-block bg-yellow-500 text-black px-6 py-3 rounded-md font-medium hover:bg-yellow-400 transition-colors"
+                <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                  Transform your outdoor space into a stunning, sustainable
+                  paradise with our expert landscaping services.
+                </p>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                  className="space-x-4"
                 >
-                  Portfolio
-                </Link>
-              </div>
+                  <Link
+                    href="#projects"
+                    className="inline-block bg-yellow-500 text-black px-8 py-4 rounded-md font-medium hover:bg-yellow-400 transition-colors transform hover:scale-105 duration-200 shadow-lg"
+                  >
+                    View Our Portfolio
+                  </Link>
+                  <Link
+                    href="#contact"
+                    className="inline-block bg-transparent text-white border-2 border-white px-8 py-3.5 rounded-md font-medium hover:bg-white/10 transition-colors"
+                  >
+                    Get a Quote
+                  </Link>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </section>
