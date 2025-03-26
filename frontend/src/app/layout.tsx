@@ -6,7 +6,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Gardener - Landscaping & Smart Green Solutions",
+  title: "Raponi Gardens - Landscaping & Smart Green Solutions",
   description: "Professional landscaping and gardening services",
 };
 
